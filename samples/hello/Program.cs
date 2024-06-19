@@ -58,7 +58,7 @@ namespace hello
             else
             {
                 Foo foo = new Foo();
-                for (int i = 0; i < 10_000; i++)
+                for (long i = 0; i < 1_000_000_000_000; i++)
                 {
                     foo.x = foo;
                 }
