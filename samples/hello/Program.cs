@@ -62,6 +62,7 @@ namespace hello
                 {
                     foo.x = foo;
                 }
+                System.Console.ReadKey();
             }
 
             //CreateHostBuilder(args).Build().Run();
