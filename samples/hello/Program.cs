@@ -49,6 +49,8 @@ namespace hello
                     output.AppendLine(perfProcess.StandardError.ReadToEnd());
                     File.WriteAllText("./Perf.stat", output.ToString());
                 }
+
+                System.Console.WriteLine("Application started.");
             }
 
             else
