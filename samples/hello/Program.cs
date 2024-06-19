@@ -45,9 +45,10 @@ namespace hello
                     };
                     */
 
+                    perfProcess.Start();
                     output.AppendLine(perfProcess.StandardOutput.ReadToEnd());
                     output.AppendLine(perfProcess.StandardError.ReadToEnd());
-                    perfProcess.Start();
+                    perfProcess.WaitForExit();
                     File.WriteAllText("./Perf.stat", output.ToString());
                 }
 
