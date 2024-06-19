@@ -14,7 +14,7 @@ namespace hello
     {
         public static void Main(string[] args)
         {
-            if (args.Length == 0) 
+            if (args.Length > 0) 
             {
                 StringBuilder output = new(); 
                 string command = $"stat -B -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
