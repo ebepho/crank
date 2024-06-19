@@ -47,6 +47,7 @@ namespace hello
 
                     output.AppendLine(perfProcess.StandardOutput.ReadToEnd());
                     output.AppendLine(perfProcess.StandardError.ReadToEnd());
+                    perfProcess.Start();
                     File.WriteAllText("./Perf.stat", output.ToString());
                 }
 
