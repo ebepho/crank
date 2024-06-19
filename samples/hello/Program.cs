@@ -2,14 +2,11 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System.Text;
 
 namespace hello
 {
@@ -17,14 +14,57 @@ namespace hello
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+            if (args.Length > 0) 
+            {
+                StringBuilder output = new(); 
+                string command = $"stat -B -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
+                using (Process perfProcess = new Process())
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    perfProcess.StartInfo.FileName = "perf";
+                    perfProcess.StartInfo.Arguments = command;
+                    perfProcess.StartInfo.UseShellExecute = false;
+                    perfProcess.StartInfo.RedirectStandardOutput = true;
+                    perfProcess.StartInfo.RedirectStandardError = true;
+                    perfProcess.StartInfo.CreateNoWindow = true;
+
+                    /*
+                    perfProcess.OutputDataReceived += (s, d) =>
+                    {
+                        if (d != null && d.Data != null)
+                        {
+                            output.AppendLine(d.Data);
+                        }
+                    };
+
+                    perfProcess.ErrorDataReceived += (s, d) =>
+                    {
+                        if (d != null && d.Data != null)
+                        {
+                            output.AppendLine(d.Data);
+                        }
+                    };
+                    */
+
+                    output.AppendLine(perfProcess.StandardOutput.ReadToEnd());
+                    output.AppendLine(perfProcess.StandardError.ReadToEnd());
+                    File.WriteAllText("./Perf.stat", output.ToString());
+                }
+            }
+
+            else
+            {
+                List<int> list = new();
+                foreach (var i in Enumerable.Range(0, 10_000))
+                {
+                    list.Add(i);
+                    list[i] = i + 1;
+                }
+            }
+
+            //CreateHostBuilder(args).Build().Run();
+            // 1. Start the perf process.
+            // 2. Start the loop of setting vals. 
+            // 3. Stop the perf process.
+        }
     }
 }
