@@ -57,11 +57,10 @@ namespace hello
 
             else
             {
-                List<int> list = new();
-                foreach (var i in Enumerable.Range(0, 10_000))
+                Foo foo = new Foo();
+                for (int i = 0; i < 10_000; i++)
                 {
-                    list.Add(i);
-                    list[i] = i + 1;
+                    foo.x = foo;
                 }
             }
 
@@ -69,6 +68,10 @@ namespace hello
             // 1. Start the perf process.
             // 2. Start the loop of setting vals. 
             // 3. Stop the perf process.
+        }
+        internal class Foo
+        {
+            public Foo x;
         }
     }
 }
