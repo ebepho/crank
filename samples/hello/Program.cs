@@ -71,7 +71,7 @@ namespace hello
         }
         internal class Foo
         {
-            public Foo x;
+            public volatile Foo x;
         }
     }
 }
