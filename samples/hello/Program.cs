@@ -26,25 +26,6 @@ namespace hello
                     perfProcess.StartInfo.RedirectStandardOutput = true;
                     perfProcess.StartInfo.RedirectStandardError = true;
                     perfProcess.StartInfo.CreateNoWindow = true;
-
-                    /*
-                    perfProcess.OutputDataReceived += (s, d) =>
-                    {
-                        if (d != null && d.Data != null)
-                        {
-                            output.AppendLine(d.Data);
-                        }
-                    };
-
-                    perfProcess.ErrorDataReceived += (s, d) =>
-                    {
-                        if (d != null && d.Data != null)
-                        {
-                            output.AppendLine(d.Data);
-                        }
-                    };
-                    */
-
                     perfProcess.Start();
                     output.AppendLine(perfProcess.StandardOutput.ReadToEnd());
                     output.AppendLine(perfProcess.StandardError.ReadToEnd());

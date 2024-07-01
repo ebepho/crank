@@ -11,18 +11,12 @@ jobs:
         repository: https://github.com/mrsharm/crank
         branchOrCommit: test_wb 
     project: crank/samples/hello/hello.csproj
-    #readyStateText: Application started.
     waitForExit: true
 
 scenarios:
   hello:
     application:
       job: server
-    # load:
-    #   job: bombardier
-    #   variables:
-    #     serverPort: 5000
-    #     path: /
 
 profiles:
   local:
