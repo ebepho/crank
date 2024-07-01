@@ -31,4 +31,4 @@ crank --config ./samples/hello/hello.benchmarks.yml --scenario hello --profile a
 
 #### ARM
 
-crank --config ./samples/hello/hello.benchmarks.yml --scenario hello --profile aspnet-siryn-arm-lin --application.options.fetch true --application.timeout "3"  --application.options.dumpType full
+crank --config ./samples/hello/hello.benchmarks.yml --scenario hello --profile aspnet-siryn-arm-lin --application.options.fetch true --application.timeout "100"
