@@ -6,6 +6,7 @@
 3. Understand CPU usage between ARM and AMD.
 4. Setting the same write barrier and rerunning the experiment - use the Less Precise WB in AMD for comparison.
 5. Understanding Patching - Maoni.
+6. Talk to Andrea about the results.
 
 
 ## Commands
