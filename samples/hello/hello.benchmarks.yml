@@ -8,8 +8,8 @@ jobs:
   server:
     sources:
       crank:
-        repository: https://github.com/mrsharm/crank
-        branchOrCommit: test_wb 
+        repository: https://github.com/ebepho/crank
+        branchOrCommit: test_wb_phoebe 
     project: crank/samples/hello/hello.csproj
     waitForExit: true
 
