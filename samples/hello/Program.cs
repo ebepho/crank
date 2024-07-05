@@ -17,7 +17,7 @@ namespace hello
             if (args.Length == 0) 
             {
                 StringBuilder output = new(); 
-                string command = $"stat -B -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
+                string command = $"stat -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
                 using (Process perfProcess = new Process())
                 {
                     perfProcess.StartInfo.FileName = "perf";
