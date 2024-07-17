@@ -53,10 +53,10 @@ namespace hello
 
             else
             {
-                Foo foo = new Foo();
-                for (long i = 0; i < 1_100_000_000; i++)
+                int foo = new int();
+                for (long i = 0; i < 100_000_000; i++)
                 {
-                    foo.x = foo;
+                    foo = 1;
                 }
             }
 
@@ -65,9 +65,6 @@ namespace hello
             // 2. Start the loop of setting vals. 
             // 3. Stop the perf process.
         }
-        internal class Foo
-        {
-            public volatile Foo x;
-        }
+
     }
 }
