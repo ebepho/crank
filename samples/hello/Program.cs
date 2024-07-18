@@ -21,7 +21,7 @@ namespace hello
                 string command = "record ./hello 1";
                 using (Process perfProcess = new Process())
                 {
-                    perfProcess.StartInfo.FileName = "perf";
+                    perfProcess.StartInfo.FileName = "sudo perf";
                     perfProcess.StartInfo.Arguments = command;
                     perfProcess.StartInfo.UseShellExecute = false;
                     perfProcess.StartInfo.RedirectStandardOutput = true;
@@ -35,7 +35,7 @@ namespace hello
 
                 using (Process perfProcess = new Process())
                 {
-                    perfProcess.StartInfo.FileName = "perf";
+                    perfProcess.StartInfo.FileName = "sudo perf";
                     perfProcess.StartInfo.Arguments = command;
                     perfProcess.StartInfo.UseShellExecute = false;
                     perfProcess.StartInfo.RedirectStandardOutput = true;
