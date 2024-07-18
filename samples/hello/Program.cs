@@ -18,7 +18,7 @@ namespace hello
             {
                 StringBuilder output = new();
                 // string command = $"stat -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
-                string command = "record ./hello 1";
+                string command = "sudo record ./hello 1";
                 using (Process perfProcess = new Process())
                 {
                     perfProcess.StartInfo.FileName = "perf";
@@ -31,7 +31,7 @@ namespace hello
                     perfProcess.WaitForExit();
                 }
 
-                command = "report ./perf.data";
+                command = "sudo report ./perf.data";
 
                 using (Process perfProcess = new Process())
                 {
