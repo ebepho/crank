@@ -16,23 +16,8 @@ namespace hello
         {
             if (args.Length == 0) 
             {
-                StringBuilder output = new();
-                // string command = $"stat -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
-                string command = "record ./hello 1";
-                using (Process perfProcess = new Process())
-                {
-                    perfProcess.StartInfo.FileName = "perf";
-                    perfProcess.StartInfo.Arguments = command;
-                    perfProcess.StartInfo.UseShellExecute = false;
-                    perfProcess.StartInfo.RedirectStandardOutput = true;
-                    perfProcess.StartInfo.RedirectStandardError = true;
-                    perfProcess.StartInfo.CreateNoWindow = true;
-                    perfProcess.Start();
-                    perfProcess.WaitForExit();
-                }
-
-                command = "report ./perf.data";
-
+                StringBuilder output = new(); 
+                string command = $"stat -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
                 using (Process perfProcess = new Process())
                 {
                     perfProcess.StartInfo.FileName = "perf";
