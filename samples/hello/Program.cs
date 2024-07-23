@@ -41,7 +41,7 @@ namespace hello
                 int foo = new int();
                 for (long i = 0; i < 200_000_000; i++)
                 {
-                    foo.x = foo;
+                    foo = foo;
                 }
             }
 
