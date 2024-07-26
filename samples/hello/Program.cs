@@ -38,10 +38,10 @@ namespace hello
 
             else
             {
-                Foo foo = new Foo();
-                for (long i = 0; i < 100_000_000; i++)
+                int foo = new int();
+                for (long i = 0; i < 200_000_000; i++)
                 {
-                    foo = foo;
+                    foo.x = foo;
                 }
             }
 
