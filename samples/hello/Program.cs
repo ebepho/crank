@@ -38,7 +38,7 @@ namespace hello
 
             else
             {
-                int foo = new int();
+                Foo foo = new Foo();
                 for (long i = 0; i < 100_000_000; i++)
                 {
                     foo = foo;
