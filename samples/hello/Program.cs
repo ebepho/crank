@@ -18,6 +18,11 @@ namespace hello
             {
                 StringBuilder output = new(); 
                 string command = $"stat -B -e cache-references,cache-misses,cycles,instructions,branches,faults,migrations ./hello 1";
+                
+                // Generate a unique filename with timestamp
+                string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+                string filename = $"Perf_{timestamp}.stat";
+
                 using (Process perfProcess = new Process())
                 {
                     perfProcess.StartInfo.FileName = "perf";
@@ -30,7 +35,7 @@ namespace hello
                     output.AppendLine(perfProcess.StandardOutput.ReadToEnd());
                     output.AppendLine(perfProcess.StandardError.ReadToEnd());
                     perfProcess.WaitForExit();
-                    File.WriteAllText("./Perf.stat", output.ToString());
+                    File.WriteAllText(filename, output.ToString());
                 }
 
                 System.Console.WriteLine("Application started.");
