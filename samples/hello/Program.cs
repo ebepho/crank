@@ -44,10 +44,10 @@ namespace hello
 
             else
             {
-                int[] foo = new int[1];
-                for (long i = 0; i < 100_000_000; i++)
+                Foo foo = new Foo();
+                for (long i = 0; i < 200_000_000; i++)
                 {
-                    foo[0]++;
+                    foo.x = foo;
                 }
             }
 
@@ -58,7 +58,7 @@ namespace hello
         }
         internal class Foo
         {
-            public volatile Foo x;
+            public Foo x;
         }
     }
 }
